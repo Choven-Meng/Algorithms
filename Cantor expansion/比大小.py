@@ -51,3 +51,4 @@ if __name__ == "__main__":
         list.append(raw_input().strip())
     for i in range(number):
         print (Compare(list[i]))
+ 
