@@ -30,7 +30,7 @@ X = 2 * 4! + 2 * 3! + 0 * 2! + 1 * 1! + 0 * 0!
 
 所以比 34152 小的组合有61个，即34152是排第62。
 
-[代码]()
+[代码](https://github.com/Choven-Meng/Algorithms/blob/master/Cantor%20expansion/Cantor.py)
 
 ## 逆康托展开示例
 
