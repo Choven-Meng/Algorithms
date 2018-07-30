@@ -26,3 +26,4 @@ def insert(intervals, newInterval):
     
     if __name__ == '__main__':
       print(insert([[1,3],[6,9]],[2,5]))
+ 
