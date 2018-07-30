@@ -47,3 +47,10 @@ X = 2 * 4! + 2 * 3! + 0 * 2! + 1 * 1! + 0 * 0!
 * 最后一位自然就是剩下的数2啦。
 
 通过以上分析，所求排列组合为 34152。
+
+[代码](https://github.com/Choven-Meng/Algorithms/tree/master/Cantor%20expansion)
+
+
+# 应用示例
+
+[例1. 字符串比大小]
