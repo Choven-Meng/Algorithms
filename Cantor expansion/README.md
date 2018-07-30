@@ -53,4 +53,4 @@ X = 2 * 4! + 2 * 3! + 0 * 2! + 1 * 1! + 0 * 0!
 
 # 应用示例
 
-[例1. 字符串比大小]
+[例1. 字符串比大小](https://github.com/Choven-Meng/Algorithms/blob/master/Cantor%20expansion/%E5%BA%94%E7%94%A8_%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E5%A4%A7%E5%B0%8F.py)
