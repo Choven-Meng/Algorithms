@@ -18,7 +18,10 @@
 
 ## 2. 动图演示
 
-![](https://github.com/Choven-Meng/Algorithms/tree/master/sortAlgorithm/res/bubbleSort.gif)
+![动图演示](https://github.com/Choven-Meng/Algorithms/tree/master/sortAlgorithm/res/bubbleSort.gif)
+
+
+<img src="https://github.com/hustcc/JS-Sorting-Algorithm/raw/master/res/bubbleSort.gif" alt="动图演示" style="max-width:100%;">
 
 
 ## 3. 什么时候最快
