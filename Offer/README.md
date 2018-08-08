@@ -3,6 +3,14 @@
 
   * [1. 不用加减乘除做加法](#1-二维数组中的查找)  
 
+[二、字符串](#一-字符串)
+
+  * [1. 替换空格](#1-替换空格)  
+  
+[三、链表](#一-链表)
+
+  * [1. 从尾到头打印链表](#1-从尾到头打印列表) 
+
 ## 一、数组
 
 * ### 1、二维数组中的查找
@@ -17,8 +25,6 @@
 方法一： 循环迭代查找，不是最优
 284ms
 5760k
-
-
 class Solution:
     # array 二维列表
     def Find(self, target, array):
@@ -61,3 +67,81 @@ class Solution:
                 return True
         return False
 ```
+
+## 二、字符串
+
+* ### 1、替换空格
+
+**题目描述**
+
+题目：请实现一个函数，将一个字符串中的空格替换成“%20”。  
+例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+
+```
+方法1： 使用replace
+24ms
+5624k
+'''
+class Solution:
+    # s 源字符串
+    def replaceSpace(self, s):
+        # write code here
+        return s.replace(' ','%20')
+```
+
+## 三、链表
+ 
+* ### 1、 从尾到头打印链表
+
+**题目描述**
+
+输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+
+```
+方法一：使用extend，在尾部插入，其实最关键在于[::-1],只不过输入数据多样化，有可能还是集合，所以转成列表
+这个方法效率应该还可以，先存入vector，再反转vector
+26ms
+5512k
+
+# -*- coding:utf-8 -*-
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):
+        # write code here
+        if not listNode:
+            return []
+
+        result = []
+        while listNode.next is not None:
+            result.extend([listNode.val])
+            listNode = listNode.next
+        result.extend([listNode.val])
+
+        return result[::-1]
+```
+
+```
+方法二： 使用insert直接在头部插入
+26ms
+6336k
+
+class Solution:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):
+        # write code here
+        if not listNode:
+            return []
+
+        result = []
+        head = listNode
+
+        while head:
+            result.insert(0, head.val)
+            head = head.next
+        return result
+ ```
