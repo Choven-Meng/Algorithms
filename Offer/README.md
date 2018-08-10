@@ -25,7 +25,9 @@
 
 [七. 递归和循环](#七-递归和循环)
 
-  * [1. 斐波那契数列](#1-斐波那契数列) 
+  * [1. 斐波那契数列](#1-斐波那契数列)   
+  * [2. 变态跳台阶](#2-变态跳台阶)   
+  * [3. 跳台阶](#3-跳台阶)
 
 ## 一. 数组
 
@@ -288,4 +290,63 @@ class Solution:
         while len(res) <= n:
             res.append(res[-1] + res[-2])
         return res[n]
+```
+
+* ### 2. 变态跳台阶
+
+**题目描述**
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+
+```
+因为n级台阶，第一步有n种跳法：跳1级、跳2级、到跳n级
+跳1级，剩下n-1级，则剩下跳法是f(n-1)
+跳2级，剩下n-2级，则剩下跳法是f(n-2)
+所以f(n)=f(n-1)+f(n-2)+...+f(1)
+因为f(n-1)=f(n-2)+f(n-3)+...+f(1)
+所以f(n)=2*f(n-1)
+然后求解这个无穷级数的和，正确答案应该是：每次至少跳一个，至多跳n个，一共有f(n)=2的n-1次方种跳法
+
+class Solution:
+    def jumpFloorII(self, number):
+        # write code here
+        return 2**(number-1)
+ 
+ 用递归：
+ class Solution:
+    def jumpFloorII(self, number):
+        # write code here
+        if number == 1:
+            return 1
+        return 2*self.jumpFloorII(number-1)
+```
+
+* ### 3. 跳台阶
+
+**题目描述**
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+
+```
+对于本题,前提只有 一次 1阶或者2阶的跳法。
+a.如果两种跳法，1阶或者2阶，那么假定第一次跳的是一阶，那么剩下的是n-1个台阶，跳法是f(n-1);
+b.假定第一次跳的是2阶，那么剩下的是n-2个台阶，跳法是f(n-2)
+c.由a\b假设可以得出总跳法为: f(n) = f(n-1) + f(n-2) 
+d.然后通过实际的情况可以得出：只有一阶的时候 f(1) = 1 ,只有两阶的时候可以有 f(2) = 2
+e.可以发现最终得出的是一个斐波那契数列：
+        
+       | 1, (n=1)
+f(n) = | 2, (n=2)
+       | f(n-1)+f(n-2) ,(n>2,n为整数)
+
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+        res = [1,2]
+        while len(res) <= number:
+            res.append(res[-1]+res[-2])
+        if number == 1:
+            return 1
+        else:
+            return res[number-1]
 ```
