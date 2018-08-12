@@ -28,6 +28,7 @@
   * [1. 斐波那契数列](#1-斐波那契数列)   
   * [2. 变态跳台阶](#2-变态跳台阶)   
   * [3. 跳台阶](#3-跳台阶)
+  * [4. 矩形覆盖](#4-矩形覆盖)
 
 ## 一. 数组
 
@@ -312,7 +313,7 @@ class Solution:
         # write code here
         return 2**(number-1)
  
- 用递归：
+ 用递归：递归时间长，不建议用
  class Solution:
     def jumpFloorII(self, number):
         # write code here
@@ -349,4 +350,26 @@ class Solution:
             return 1
         else:
             return res[number-1]
+```
+
+* ### 4. 矩形覆盖
+
+**题目描述**
+
+我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？  
+```
+class Solution:
+    def rectCover(self, number):
+        # write code here
+        if number == 0:
+            return 0
+        elif number == 1:
+            return 1
+        elif number == 2:
+            return 2
+        else:
+            res = [0,1,2]
+            while len(res) <= number:
+                res.append(res[-1]+res[-2])
+            return res[number]
 ```
