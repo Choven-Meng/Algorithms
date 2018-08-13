@@ -9,7 +9,7 @@
 <4>.二叉树分类：满二叉树，完全二叉树
 
 满二叉树：高度为h，由2<sup>h</sup>-1个节点构成的二叉树称为满二叉树。   
-<img alt="" src="https://img-blog.csdn.net/20180221195752327">   
+<img src="https://img-blog.csdn.net/20180221195752327">   
 
 
-<img alt="" src="https://img-blog.csdn.net/20180221195816458">
+<img src="https://img-blog.csdn.net/20180221195816458">
