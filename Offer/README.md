@@ -40,7 +40,8 @@
   
 [十. 代码的鲁棒性](#十-代码的鲁棒性)
 
-  * [1. 链表中倒数第k个节点](#1-链表中倒数第k个节点) 
+  * [1. 链表中倒数第k个节点](#1-链表中倒数第k个节点)    
+  * [2. 反转链表](#2-反转链表) 
 
 
 ## 一. 数组
@@ -477,4 +478,50 @@ class Solution:
         if k > len(res) or k < 1:
             return
         return res[-k]
+```
+
+* ### 2. 反转链表
+
+**题目描述**
+
+输入一个链表，反转链表后，输出新链表的表头。   
+```
+链表的翻转，例如 1->2->3->4->5  ==>  5->4->3->2->1
+
+方法一:迭代(链表翻转操作的顺序对于迭代来说是从链头往链尾)
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    # 返回ListNode
+    def ReverseList(self, pHead):
+        # write code here
+        if not pHead or not pHead.next:
+            return pHead
+        newHead = None
+        while pHead:
+            tem = pHead.next  #暂存pHead下一个地址，防止变化指针指向后找不到后续的数
+            pHead.next = newHead   #pHead->next指向前一个空间
+            newHead = pHead  #新链表的头移动到p，扩长一步链表
+            pHead = tem  #pHead指向原始链表pHead指向的下一个空间
+        return newHead
+```    
+```
+方法二：递归(链表翻转操作的顺序对于递归来说是从链尾往链头)
+# -*- coding:utf-8 -*-
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    # 返回ListNode
+    def ReverseList(self, pHead):
+        # write code here
+        if not pHead or not pHead.next:
+            return pHead
+        newHead = self.ReverseList(pHead.next)
+        pHead.next.next = pHead
+        pHead.next = None
+        return newHead
 ```
