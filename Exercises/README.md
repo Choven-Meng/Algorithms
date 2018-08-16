@@ -2,6 +2,55 @@
 
 一. 图论
 
+图论可以看做字典，如：   
+ graph = {'A': ['B', 'C'], 'B': ['C', 'D'], 'C': ['D'], 'D': ['C'], 'E': ['F'], 'F': ['C']}   
+ ```
+ # 找到一条从一点到另一点的路径
+ def find_path(graph, start, end, path=[]):
+        path = path + [start] # 加入开始节点
+        if start == end:
+            return path
+        if not graph.get(start): # 若开始节点没有指向的点，说明不存在路径
+            return None
+        for node in graph[start]:
+            if node not in path:
+                newpath = find_path(graph, node, end, path)
+                if newpath: 
+                    return newpath
+        return None
+        
+ # 找到所以的路径
+  def find_all_paths(graph, start, end, path=[]):
+        path = path + [start]
+        if start == end:
+            return [path]
+        if not graph.get(start):
+            return []
+        paths = []
+        for node in graph[start]:
+            if node not in path:
+                newpaths = find_all_paths(graph, node, end, path)
+                for newpath in newpaths:
+                    paths.append(newpath)
+        return paths
+        
+ # 找到最短路径
+  def find_shortest_path(graph, start, end, path=[]):
+        path = path + [start]
+        if start == end:
+            return path
+        if not graph.get(start):
+            return None
+        shortest = None
+        for node in graph[start]:
+            if node not in path:
+                newpath = find_shortest_path(graph, node, end, path)
+                if newpath:
+                    if not shortest or len(newpath) < len(shortest):
+                        shortest = newpath
+        return shortest
+ ```
+
 1. 小赛旅游
 
 **题目描述**
