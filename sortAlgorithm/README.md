@@ -63,4 +63,39 @@ arry = [50,45,40,20,25,35,30,10,15]
    
   b.将堆顶元素与末尾元素交换，将最大元素"沉"到数组末端;
   
-  c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与当前末尾元素，反复执行调整+交换步骤，直到整个序列有序。
+  c.重新调整结构，使其满足堆定义，然后继续交换堆顶元素与当前末尾元素，反复执行调整+交换步骤，直到整个序列有序。  
+  
+  堆排序算法的演示：　
+  
+  <img src="https://images2015.cnblogs.com/blog/739525/201603/739525-20160328213839160-2037856208.gif" alt="">  
+  
+  python实现：  
+  
+  ```
+  def adjust_heap(lists, i, size):
+    leftIndex = 2 * i + 1 # 左子树索引
+    rightIndex = 2 * i + 2 # 右子树索引
+    maxIndex = i # 最大值索引
+    # 选出当前节点与其左右子树的最大值
+    if i < size / 2:
+        if leftIndex < size and lists[leftIndex] > lists[maxIndex]:
+            maxIndex = leftIndex
+        if rightIndex < size and lists[rightIndex] > lists[maxIndex]:
+            maxIndex = rightIndex
+        if maxIndex != i:
+            lists[maxIndex], lists[i] = lists[i], lists[maxIndex]
+            adjust_heap(lists, maxIndex, size)
+
+def build_heap(lists, size):
+    # 对每一个非叶节点向下进行堆调整
+    for i in range(int(size/2)-1,-1,-1):
+        adjust_heap(lists, i, size)
+
+def heap_sort(lists):
+    size = len(lists)
+    build_heap(lists, size) # 建立一个最大堆
+    #将堆顶元素与堆的最后一个元素互换，并从堆中去掉最后一个元素
+    for i in range(size-1,-1,-1):
+        lists[0], lists[i] = lists[i], lists[0]
+        adjust_heap(lists, 0, i)
+  ```
