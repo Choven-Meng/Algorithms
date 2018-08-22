@@ -4,8 +4,12 @@
   * [2. 路径规划 | 最短路径问题 | 广度预优先优化](#2-路径规划--最短路径问题--广度预优先优化)
 
 ### 1. 定义
+
+利用字典、列表、矩阵构造图的[方法](https://github.com/Choven-Meng/Algorithms/tree/master/dataStructures/GRAPH)
+
 图论可以看做字典，如：   
- graph = {'A': ['B', 'C'], 'B': ['C', 'D'], 'C': ['D'], 'D': ['C'], 'E': ['F'], 'F': ['C']}   
+ graph = {'A': ['B', 'C'], 'B': ['C', 'D'], 'C': ['D'], 'D': ['C'], 'E': ['F'], 'F': ['C']}  
+ 
  ```
  # 找到一条从一点到另一点的路径
  def find_path(graph, start, end, path=[]):
