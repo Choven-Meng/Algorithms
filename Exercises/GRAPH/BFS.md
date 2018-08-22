@@ -25,6 +25,38 @@
 
 <img alt="" src="http://my.csdn.net/uploads/201204/30/1335725885_9403.png">
 
+
+**1. 无向图的广度优先搜索**
+
+<img src="https://github.com/wangkuiwu/datastructs_and_algorithm/blob/master/pictures/graph/iterator/05.jpg?raw=true" alt="">  
+
+```
+第1步：访问A。 
+第2步：依次访问C,D,F。 
+    在访问了A之后，接下来访问A的邻接点。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，C在"D和F"的前面，因此，先访问C。再访问完C之后，再依次访问D,F。 
+第3步：依次访问B,G。 
+    在第2步访问完C,D,F之后，再依次访问它们的邻接点。首先访问C的邻接点B，再访问F的邻接点G。 
+第4步：访问E。 
+    在第3步访问完B,G之后，再依次访问它们的邻接点。只有G有邻接点E，因此访问G的邻接点E。
+
+因此访问顺序是：A -> C -> D -> F -> B -> G -> E
+```
+
+**2. 有向图的广度优先搜索**
+
+<img src="https://github.com/wangkuiwu/datastructs_and_algorithm/blob/master/pictures/graph/iterator/06.jpg?raw=true" alt="">
+
+```
+第1步：访问A。 
+第2步：访问B。 
+第3步：依次访问C,E,F。 
+    在访问了B之后，接下来访问B的出边的另一个顶点，即C,E,F。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，因此会先访问C，再依次访问E,F。 
+第4步：依次访问D,G。 
+    在访问完C,E,F之后，再依次访问它们的出边的另一个顶点。还是按照C,E,F的顺序访问，C的已经全部访问过了，那么就只剩下E,F；先访问E的邻接点D，再访问F的邻接点G。
+
+因此访问顺序是：A -> B -> C -> E -> F -> D -> G
+```
+
 -----------------------------
 
 ### 示例1. [赛码网：小赛旅游](http://exercise.acmcoder.com/online/online_judge_ques?ques_id=2267&konwledgeId=139)
