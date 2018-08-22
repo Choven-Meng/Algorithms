@@ -43,7 +43,35 @@ def quick_sort(lists, left, right):
     quick_sort(lists, left + 1, high)
     return lists
 ```
+二：
+```
+# 切分点
+def partition(array, start, end):
+    left, right = start, end
+    key = array[left]
+    while left < right:
+        while left < right and array[right] > key:
+            right -= 1
+        array[left] = array[right]
+        while left < right and array[left] < key:
+            left += 1
+        array[right] = array[left]
 
+    array[left] = key
+    return left
+
+
+def quickSort(array,left,right):
+    if left >= right:
+        return array
+    index = partition(array, left, right);
+    quickSort(array, left, index - 1)
+    quickSort(array, index + 1, right);
+if __name__ == '__main__':
+    alist = [15,54, 26, 93, 17, 77, 31, 44, 55, 100,27]
+    print(partition(alist,0,10))
+    quickSort(alist,0,10)
+```
 
 
 
