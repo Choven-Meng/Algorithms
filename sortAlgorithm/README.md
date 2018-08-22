@@ -36,9 +36,9 @@ def quick_sort(lists, left, right):
             right -= 1
         lists[left] = lists[right]
         while left < right and lists[left] <= key:
-            left += 1
+            left += 1  # left变为最大值索引位置
         lists[right] = lists[left]
-    lists[right] = key
+    lists[right] = key  
     quick_sort(lists, low, left - 1)
     quick_sort(lists, left + 1, high)
     return lists
