@@ -1,4 +1,12 @@
 
+* [示例1. 赛码网小赛旅游](#示例1-赛码网小赛旅游)
+
+* [示例2. 走迷宫](#示例2-走迷宫)
+
+* [示例3. hero--拯救公主](#示例3-hero--拯救公主)
+
+
+
 &emsp;&emsp;宽度优先搜索算法（又称广度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源最短路径算法和Prim最小生成树算法都采用了和宽度优先搜索类似的思想。其别名又叫BFS，属于一种盲目搜寻法，目的是系统地展开并检查图中的所有节点，以找寻结果。换句话说，它并不考虑结果的可能位置，彻底地搜索整张图，直到找到结果为止。
 
 &emsp;&emsp;广度优先搜索是一种分层的查找过程，每向前走一步可能访问一批顶点，不像深度优先搜索那样有回退的情况，因此它不是一个递归的算法，为了实现逐层的访问，算法必须借助一个先进先出的辅助**队列**并且以非递归的形式来实现。
@@ -19,7 +27,7 @@
 
 -----------------------------
 
-### 示例一1. [赛码网：小赛旅游](http://exercise.acmcoder.com/online/online_judge_ques?ques_id=2267&konwledgeId=139)
+### 示例1. [赛码网：小赛旅游](http://exercise.acmcoder.com/online/online_judge_ques?ques_id=2267&konwledgeId=139)
 
 **题目描述**
 
@@ -154,9 +162,8 @@ if __name__ == '__main__':
 
 ```
 
-### 示例3. hero | 拯救公主   
+### 示例3. [hero | 拯救公主](https://www.nowcoder.com/practice/661b4d5797f04b13af291befe051d5e9?tpId=3&&tqId=10875&rp=2&ru=/activity/oj&qru=/ta/hackathon/question-ranking)   
 
-[牛客网](https://www.nowcoder.com/practice/661b4d5797f04b13af291befe051d5e9?tpId=3&&tqId=10875&rp=2&ru=/activity/oj&qru=/ta/hackathon/question-ranking)   
 **题目描述**  
 500年前，nowcoder是我国最卓越的剑客。他英俊潇洒，而且机智过人^_^。 突然有一天，nowcoder 心爱的公主被魔王困在了一个巨大的迷宫中。nowcoder 听说这个消息已经是两天以后了，他知道公主在迷宫中还能坚持T天，他急忙赶到迷宫，开始到处寻找公主的下落。 时间一点一点的过去，nowcoder 还是无法找到公主。最后当他找到公主的时候，美丽的公主已经死了。从此nowcoder 郁郁寡欢，茶饭不思，一年后追随公主而去了。T_T 500年后的今天，nowcoder 托梦给你，希望你帮他判断一下当年他是否有机会在给定的时间内找到公主。 他会为你提供迷宫的地图以及所剩的时间T。请你判断他是否能救出心爱的公主。    
 输入描述：   
