@@ -3,6 +3,50 @@
 ## [排序算法](https://github.com/Choven-Meng/Algorithms/tree/master/sortAlgorithm/BubbleSort)
 
 
+## 快速排序
+
+**快速排序的思想：**  
+首先任意选取一个数据（通常选用数组的第一个数）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。
+
+**一趟快速排序的算法是：**  
+
+快速排序使用分治策略(Divide and Conquer)来把一个序列分为两个子序列。步骤为：
+
+> 1）设置两个变量i、j，排序开始的时候：i=0，j=N-1；    
+> 2）以第一个数组元素作为关键数据，赋值给key，即key=A[0]； (基准)   
+> 3）从j开始向前搜索，即由后开始向前搜索(j--)，找到第一个小于key的值A[j]，将A[j]和A[i]互换；    
+> 4）从i开始向后搜索，即由前开始向后搜索(i++)，找到第一个大于key的A[i]，将A[i]和A[j]互换；    
+> 5）重复第3、4步，直到i=j； (3,4步中，没找到符合条件的值，即3中A[j]不小于key,4中A[i]不大于key的时候改变j、i的值，使得j=j-1，i=i+1，直至找到为止。找到符合条件的值，进行交换的时候i， j指针位置不变。另外，i==j这一过程一定正好是i+或j-完成的时候，此时令循环结束）。
+
+使用快速排序法对一列数字进行排序的过程：　　   
+<img src="https://images2015.cnblogs.com/blog/739525/201603/739525-20160328215109269-23458370.gif" alt="">
+
+python实现：
+
+```
+def quick_sort(lists, left, right):
+    # 快速排序
+    if left >= right:
+        return lists
+    key = lists[left]
+    low = left
+    high = right
+    while left < right:
+        while left < right and lists[right] >= key:
+            right -= 1
+        lists[left] = lists[right]
+        while left < right and lists[left] <= key:
+            left += 1
+        lists[right] = lists[left]
+    lists[right] = key
+    quick_sort(lists, low, left - 1)
+    quick_sort(lists, left + 1, high)
+    return lists
+```
+
+
+
+
 ## 堆排序
 
 堆排序实际上是利用堆的性质来进行排序的，要知道堆排序的原理我们首先一定要知道什么是堆。    
