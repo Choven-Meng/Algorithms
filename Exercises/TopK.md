@@ -46,11 +46,41 @@
 
 * 较高效：Quick Select算法。
 
-1. 堆
+1. 堆[小顶堆(TopK大)/大顶堆(BtmK小)]
 
 小顶堆（min-heap）有个重要的性质——每个结点的值均不大于其左右孩子结点的值，则堆顶元素即为整个堆的最小值。在Python中对堆这种数据结构进行了模块化，我们可以通过调用heapq模块来建立堆这种数据结构，同时heapq模块也提供了相应的方法来对堆做操作。 
 
 * 求出TopK大的元素，使用小顶堆，heapq模块实现  
+
+```
+import heapq
+import random
+
+class TopkHeap(object):
+    def __init__(self,k):
+        self.k = k
+        self.data = [] #建立一个堆
+
+    def Push(self, elem):
+        if len(self.data) < self.k:
+            heapq.heappush(self.data, elem) # 往堆中插入数据
+        else:
+            topk_small = self.data[0]
+            if elem > topk_small:
+                heapq.heapreplace(self.data, elem) #弹出一个最小的值，然后将elem插入到堆当中
+
+    def TopK(self):
+        return [x for x in reversed([heapq.heappop(self.data) for x in range(len(self.data))])]
+
+if __name__ == "__main__":
+    list_rand = random.sample(range(1000000), 100)
+    th = TopkHeap(3)
+    for i in list_rand:
+        th.Push(i)
+    print (th.TopK())
+
+```
+Python自带的heapq模块实现的是最小堆，没有提供最大堆的实现,方法是：push(e)改为push(-e)，pop(e)为-pop(e)，也就是说存入和取出的数都是相反数，其他逻辑和TopK相同。
 
 * Quick Select
 
@@ -122,4 +152,21 @@ if __name__ == '__main__':
     alist = [15,54, 26, 93, 17, 77, 31, 44, 55, 100]
     print(partition(alist,0,9))
     print(minTopK(alist,  3))
+```
+
+更为简单直观的方法：
+
+```
+def partition(seq):
+    pi, seq = seq[0], seq[1:]                 # 选取并移除主元
+    lo = [x for x in seq if x <= pi]
+    hi = [x for x in seq if x > pi]
+    return lo, pi, hi
+
+def select(seq, k):
+    lo, pi, hi = partition(seq)
+    m = len(lo)
+    if m == k: return pi
+    if m < k: return select(hi, k-m-1)
+    return select(lo, k)
 ```
