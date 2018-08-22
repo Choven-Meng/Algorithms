@@ -1,11 +1,11 @@
 **目录**
 
-  * [一. 图论](https://github.com/Choven-Meng/Algorithms/tree/master/Exercises/GRAPH)    
+  [一. 图论](https://github.com/Choven-Meng/Algorithms/tree/master/Exercises/GRAPH)    
     * [1. 基本遍历]    
       * [a. 广度优先搜索BFS] 
         * [示例1. 赛码网:小赛旅游](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/BFS.md#示例1-赛码网小赛旅游)  
-        *[示例2. 走迷宫](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/BFS.md#示例2-走迷宫)  
-        *[示例3. hero|拯救公主](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/BFS.md#示例3-hero--拯救公主)  
+        * [示例2. 走迷宫](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/BFS.md#示例2-走迷宫)  
+        * [示例3. hero|拯救公主](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/BFS.md#示例3-hero--拯救公主)  
       * [b. 深度优先搜索]    
       * [c. A*搜索算法]
       
