@@ -9,10 +9,10 @@
     * [b. 深度优先搜索]    
     * [c. A*搜索算法]
       
-  * [2. 最短路径算法]   
-    * [a. 迪科斯彻算法Dijkstra]   
+  * [2. 最短路径算法](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/最短路径.md#一-最短路径问题介绍)   
+    * [a. 迪科斯彻算法Dijkstra](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/最短路径.md#二-dijkstra算法)   
     * [b. Bellman-Ford]   
-    * [c. Floyd-Warshall]  
+    * [c. Floyd-Warshall](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/最短路径.md#三-floyd算法)  
       
   * [3. 最小生成树]   
     * [a. Prim]   
