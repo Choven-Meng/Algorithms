@@ -50,3 +50,60 @@
 
 因此访问顺序是：A -> B -> C -> E -> D -> F -> G
 ```
+
+### 示例1. 城堡问题
+
+**问题描述：**
+
+<img src="//img-blog.csdn.net/20180316152743872?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0xaSF8xMjM0NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="">   
+<img src="//img-blog.csdn.net/20180316152812703?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0xaSF8xMjM0NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="">  
+
+<img src="//img-blog.csdn.net/20180316152908233?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0xaSF8xMjM0NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="">  
+
+```
+rows, cols = map(int, input().split())
+rooms = []
+for i in range(rows):
+    rooms.append(list(map(int, input().split())))
+
+# 同一房间有相同的color值
+color = [[0] * cols for _ in range(rows)]
+roomNum = 0 # 房间数量
+maxRoomArea = 0 # 房间的方块数
+
+def DFS(i,j):
+    global roomNum
+    global roomArea
+    if color[i][j]!=0:
+        return
+    roomArea += 1
+    color[i][j] = roomNum
+    # 向西走
+    if rooms[i][j] & 1 == 0:
+        DFS(i, j - 1)
+    # 向北走
+    if rooms[i][j] & 2 == 0:
+        DFS(i - 1, j)
+    # 向东走
+    if rooms[i][j] & 4 == 0:
+        DFS(i, j + 1)
+    # 向南走
+    if rooms[i][j] & 8 == 0:
+        DFS(i + 1, j)
+
+for i in range(rows):
+    for j in range(cols):
+        if color[i][j] == 0:
+            roomNum += 1
+            roomArea = 0
+            DFS(i,j)
+            maxRoomArea = max(roomArea,maxRoomArea)
+print('房间数量:',roomNum)
+print('最大房间的方块数：',maxRoomArea)
+print(color)
+
+#output
+房间数量: 5
+最大房间的方块数： 9
+[[1, 1, 2, 2, 3, 3, 3], [1, 1, 1, 2, 3, 4, 3], [1, 1, 1, 5, 3, 5, 3], [1, 5, 5, 5, 5, 5, 3]]
+```
