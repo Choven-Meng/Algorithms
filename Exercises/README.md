@@ -8,7 +8,7 @@
       * [示例3. hero|拯救公主](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/BFS.md#示例3-hero--拯救公主)  
     * [b. 深度优先搜索](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/DFS.md)   
       * [示例1. 城堡问题](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/DFS.md#示例1-城堡问题)
-    * [c. A*搜索算法]
+    * [c. A*搜索算法](http://www.cppblog.com/mythit/archive/2009/04/19/80492.aspx)
       
   * [2. 最短路径算法](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/最短路径.md#一-最短路径问题介绍)   
     * [a. 迪杰斯特算法Dijkstra](https://github.com/Choven-Meng/Algorithms/blob/master/Exercises/GRAPH/最短路径.md#二-dijkstra算法)   
