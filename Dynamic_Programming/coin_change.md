@@ -1,3 +1,5 @@
+### 1. 每种元素个数(每种面值的纸币)无限
+
 假设我们有8种不同面值的硬币｛1，2，5，10，20，50，100，200｝，用这些硬币组合够成一个给定的数值n。例如n=200，那么一种可能的组合方式为    
 200 = 3 * 1 + 1＊2 + 1＊5 + 2＊20 + 1 * 50 + 1 * 100. 问总过有多少种可能的组合方式？
 
@@ -24,3 +26,10 @@ def getNumberOfCombinations(coins,N):
                 dp[i][j] += dp[i-1][j-k*coins[i-1]]
     return dp
 ```
+
+
+### 2. 每种元素个数有限
+
+https://blog.csdn.net/qiaoqiao0609/article/details/50830992
+
+https://blog.csdn.net/psc0606/article/details/48576447
