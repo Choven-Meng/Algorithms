@@ -82,7 +82,7 @@ def CompleteKnapsack(W,wt,vals,N):
     
     for n in range(1,N+1):
         for w in range(1,W+1):
-            dp[n][w] = dp[n-1][w]
+            dp[n][w] = dp[n-1][w] # k = 0时最大
             for k in range(int(w/wt[n-1] + 1)):# w/wt[n-1]表示物品n最多可以取多少次,即系数
                 if dp[n][w] < dp[n-1][w - k*wt[n-1]] + k*vals[n-1]:
                     dp[n][w] = dp[n-1][w - k*wt[n-1]] + k*vals[n-1]
@@ -132,4 +132,56 @@ def Complete_knapsack2(W, wt, val, n):
 
     #return dp[n-1][w]    #返回最大值
     return dp    #返回结果数组
+```
+
+### 3. 多重背包
+
+多重背包和01背包、完全背包的区别：多重背包中每个物品的个数都是给定的，可能不是一个，绝对不是无限个。
+
+多重背包是每个物品有不同的个数限制，如第i个物品个数为num[i]。
+
+同样可以用f[i][w]表示前i间物品恰放入一个容器为w的背包可以获得的最大价值，且每个物品数量不超多num[i]。则其状态转移方程为：
+
+***f[i][w] = max{f[i-1][W],f[i-1][W-kwt[i]]+kval[i]} ,其中(0<=k<=min{W/wt[i], num[i]})**
+
+状态转移方程与完全背包相似，只是在选择系数k时加以限制。
+
+```
+def MultipleKnapsack(W,wt,vals,nums,N):
+    """
+    W: 包的总重量
+    wt: 每个元素的重量列表
+    vals: 每个元素的价值列表
+    nums: 每个元素的个数列表
+    N: 元素个数
+    """
+    # 初始化dp[N+1][V+1]为0, dp[i][j]表示前i件物品恰放入一个容量为j的背包可以获得的最大价值
+    dp = [[0 for _ in range(W+1)] for _ in range(N+1)]
+    
+    for n in range(1,N+1):
+        for w in range(1,W+1):
+            # 对于物品n最多能取的次数是w/weight[n-1]与nums[n-1]中较小者
+            num = min(w/wt[n-1],nums[n-1])
+            
+            dp[n][w] = dp[n-1][w] # 初始取k=0为最大
+           
+            for k in range(int(num) + 1):
+                if dp[n][w] < dp[n-1][w - k*wt[n-1]] + k*vals[n-1]:
+                    dp[n][w] = dp[n-1][w - k*wt[n-1]] + k*vals[n-1]
+    return dp
+    
+
+N=5
+W=15
+wt=[5,4,7,2,6]
+vals=[12,3,10,3,6]
+nums=[2,4,1,5,3]
+MultipleKnapsack(W,wt,vals,nums,N)
+#output:
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 12, 12, 12, 12, 12, 24, 24, 24, 24, 24, 24],
+ [0, 0, 0, 0, 3, 12, 12, 12, 12, 15, 24, 24, 24, 24, 27, 27],
+ [0, 0, 0, 0, 3, 12, 12, 12, 12, 15, 24, 24, 24, 24, 27, 27],
+ [0, 0, 3, 3, 6, 12, 12, 15, 15, 18, 24, 24, 27, 27, 30, 30],
+ [0, 0, 3, 3, 6, 12, 12, 15, 15, 18, 24, 24, 27, 27, 30, 30]]
 ```
