@@ -27,11 +27,11 @@
   其中K是该xm能取的最大数值K = sum / Vm。可是这又有什么用呢？不要急，我们先进行如下变量的定义：
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dp[i][sum] = 用前i种硬币构成sum 的所有组合数。
-　　
+　
+ 
   那么题目的问题实际上就是求dp[m][sum]，即用前m种硬币（所有硬币）构成sum的所有组合数。在上面的联合等式中：当x<sub>n</sub>=0时，有多少种组合呢？ 实际上就是前i-1种硬币组合sum，有dp[i-1][sum]种！ x<sub>n</sub> = 1 时呢，有多少种组合？ 实际上是用前i-1种硬币组合成(sum - V<sub>m</sub>)的组合数，有dp[i-1][sum -Vm]种; x<sub>n</sub> =2呢， dp[i-1][sum - 2 * Vm]种，等等。所有的这些情况加起来就是我们的dp[i][sum]。所以：
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dp[i][sum] = dp[i-1][sum - 0*Vm] + dp[i-1][sum - 1*Vm]
-+ dp[i-1][sum - 2*Vm] + ... + dp[i-1][sum - K*Vm]; 其中K = sum / Vm
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dp[i][sum] = dp[i-1][sum - 0*Vm] + dp[i-1][sum - 1*Vm]+ dp[i-1][sum - 2*Vm] + ... + dp[i-1][sum - K*Vm]; 其中K = sum / Vm
 
 换一种更抽象的数学描述就是：  
 
