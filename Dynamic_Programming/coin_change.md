@@ -43,6 +43,9 @@
 
   如果我们用二位数组表示dp[i][sum], 我们发现第i行的值全部依赖与i-1行的值，所以我们可以逐行求解该数组。如果前0种硬币要组成sum，我们规定为dp[0][sum] = 0. 
 
+**动态规划：**  
+
+1、构成N的组合数
 ```
 def getNumberOfCombinations(coins,N):
     coinKinds = len(coins)
@@ -57,11 +60,36 @@ def getNumberOfCombinations(coins,N):
             for k in range(int(j/coins[i-1] + 1)):  #coins中每个元素的系数
                 dp[i][j] += dp[i-1][j-k*coins[i-1]]
     return dp
+    
+if __name__ == '__main__':
+    coins = [1,2,5,10,20,50,100,200]
+    N = 200
+    getNumberOfCombinations(coins,N)
+#output:73682
+```
+
+2、构成N的最小组合数
+```
+def getLeastNumberOfCombinations(coins,N):
+    coinKinds = len(coins)
+    dp = [[float('inf') for _ in range(N+1)] for _ in range(coinKinds+1)]
+    
+    for i in range(coinKinds+1):
+        dp[i][0] = 0  # 当N为0时，所有系数都为0
+    for i in range(1,coinKinds+1):
+        for j in range(1,N+1):
+            for k in range(int(j/coins[i-1] + 1)):  #coins中每个元素的系数
+                if dp[i-1][j-k*coins[i-1]] + k < dp[i][j]:
+                    dp[i][j] = dp[i-1][j-k*coins[i-1]] + k
+    return dp[coinKinds][N]
+    
+if __name__ == '__main__':
+    coins = [1,2,5,10,20,50,100,200]
+    N = 200
+    getNumberOfCombinations(coins,N)
+#output:1
 ```
 
 
 ### 2. 每种元素个数有限
 
-https://blog.csdn.net/qiaoqiao0609/article/details/50830992
-
-https://blog.csdn.net/psc0606/article/details/48576447
