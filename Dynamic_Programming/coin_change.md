@@ -9,6 +9,7 @@
 
   这道题目是非常经典的动态规划算法题。给定一个数值sum，假设我们有m种不同类型的硬币v1,v2,...,vm，如果要组合成sum，那么我们有   
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = x1∗v1 + x2∗v2 + ...+ xm∗vm   
+
 求所有可能的组合数，就是求满足前面等值的系数x1,x2,...,xm的所有可能个数。  
 
   从上面的分析中我们也可以这么考虑，我们希望用m种硬币构成sum，根据最后一个硬币Vm的系数的取值为无非有这么几种情况，x<sub>m</sub>分别取｛0, 1, 2, ..., sum/V<sub>m</sub>｝，换句话说，上面分析中的等式和下面的几个等式的联合是等价的。
@@ -18,7 +19,9 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = x1 * V1 + x2 * V2 + ... + 1 * Vm
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = x1 * V1 + x2 * V2 + ... + 2 * Vm
+
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;...
+
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = x1 * V1 + x2 * V2 + ... + K * Vm  
 　　
   其中K是该xm能取的最大数值K = sum / Vm。可是这又有什么用呢？不要急，我们先进行如下变量的定义：
@@ -26,6 +29,7 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dp[i][sum] = 用前i种硬币构成sum 的所有组合数。
 　　
   那么题目的问题实际上就是求dp[m][sum]，即用前m种硬币（所有硬币）构成sum的所有组合数。在上面的联合等式中：当x<sub>n</sub>=0时，有多少种组合呢？ 实际上就是前i-1种硬币组合sum，有dp[i-1][sum]种！ x<sub>n</sub> = 1 时呢，有多少种组合？ 实际上是用前i-1种硬币组合成(sum - V<sub>m</sub>)的组合数，有dp[i-1][sum -Vm]种; x<sub>n</sub> =2呢， dp[i-1][sum - 2 * Vm]种，等等。所有的这些情况加起来就是我们的dp[i][sum]。所以：
+
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dp[i][sum] = dp[i-1][sum - 0*Vm] + dp[i-1][sum - 1*Vm]
 + dp[i-1][sum - 2*Vm] + ... + dp[i-1][sum - K*Vm]; 其中K = sum / Vm
 
