@@ -93,3 +93,4 @@ if __name__ == '__main__':
 
 ### 2. 每种元素个数有限
 
+ 类似[背包问题](https://github.com/Choven-Meng/Algorithms/blob/master/Dynamic_Programming/Knapsack.md)
