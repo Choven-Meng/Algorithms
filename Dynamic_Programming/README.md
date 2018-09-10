@@ -19,3 +19,7 @@
 
 
  # [五. 编辑距离](https://github.com/Choven-Meng/Algorithms/blob/master/Dynamic_Programming/EditDistance.md)
+ 
+ # [六. 最长公共子串](https://github.com/Choven-Meng/Algorithms/blob/master/Dynamic_Programming/LongCommonSubString.md)
+ 
+ # [七. 最长公共子序列]()
