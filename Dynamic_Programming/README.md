@@ -23,3 +23,6 @@
  # [六. 最长公共子串](https://github.com/Choven-Meng/Algorithms/blob/master/Dynamic_Programming/LongCommonSubString.md)
  
  # [七. 最长公共子序列](https://github.com/Choven-Meng/Algorithms/blob/master/Dynamic_Programming/longCommonSubSequence.md)
+
+
+[动态规划的一些整理](https://blog.csdn.net/mrlevo520/article/details/75676160)
